@@ -1,7 +1,7 @@
 search:
-  max_depth: 7
-  time_ms: 1500           # if clocks not supplied; else time manager uses wtime/btime
-  tt_mb: 128
+  max_depth: 10
+  time_ms: 2500           # if clocks not supplied; else time manager uses wtime/btime
+  tt_mb: 256
   quiescence: true
   ordering: "tt_mvv_lva_quiet"
 

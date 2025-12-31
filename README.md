@@ -46,19 +46,19 @@ The engine follows a classical pipeline architecture. Here is the flow of data w
 
 ```mermaid
 graph TD
-    User((Lichess/User)) -->|Move e2e4| UCI[UCI Handler<br>(uci.py)]
-    UCI -->|Go wtime=60000| Engine[Engine Core<br>(engine.py)]
+    User((Lichess/User)) -->|Move e2e4| UCI["UCI Handler<br>(uci.py)"]
+    UCI -->|Go wtime=60000| Engine["Engine Core<br>(engine.py)"]
     
     subgraph "The Brain (my_engine)"
         Engine -->|Calculate Budget| Time[Time Manager]
-        Engine -->|Start Search| Search[Negamax Search<br>(search.py)]
+        Engine -->|Start Search| Search["Negamax Search<br>(search.py)"]
         
-        Search -->|1. Check Cache| TT[Transposition Table<br>(tt.py)]
+        Search -->|1. Check Cache| TT["Transposition Table<br>(tt.py)"]
         TT -->|Hit/Miss| Search
         
-        Search -->|2. Generate Moves| Order[Move Ordering<br>(ordering.py)]
+        Search -->|2. Generate Moves| Order["Move Ordering<br>(ordering.py)"]
         
-        Search -->|3. Evaluate Leaf| Eval[Evaluator<br>(evaluator.py)]
+        Search -->|3. Evaluate Leaf| Eval["Evaluator<br>(evaluator.py)"]
         Eval -->|Material + PST| Score
         
         Search -->|4. Resolve Tactics| Quiet[Quiescence Search]

@@ -1,0 +1,20 @@
+search:
+  max_depth: 10
+  time_ms: 2500           # if clocks not supplied; else time manager uses wtime/btime
+  tt_mb: 256
+  quiescence: true
+  ordering: "tt_mvv_lva_quiet"
+
+evaluation:
+  weights:
+    pst: 1.0
+    mobility: 0.1
+    king_safety: 0.2
+    pawns: 0.15
+    rook_open_file: 0.1
+    bishop_pair: 0.25
+
+logging:
+  pv: true
+  depth_log: true
+
